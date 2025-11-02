@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       var status = await Permission.location.request();
       if (!status.isGranted) {
         setState(() {
-          _currentAddress = "❌ Izin lokasi ditolak pengguna.";
+          _currentAddress = "Izin lokasi ditolak pengguna.";
           _isLocationLoading = false;
         });
         return;
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
       if (!serviceEnabled) {
         setState(() {
-          _currentAddress = "⚠️ GPS belum aktif. Aktifkan layanan lokasi.";
+          _currentAddress = "GPS belum aktif. Aktifkan layanan lokasi.";
           _isLocationLoading = false;
         });
         return;
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       _animController.forward(from: 0); 
     } catch (e) {
       setState(() {
-        _currentAddress = "⚠️ Gagal memuat lokasi: $e";
+        _currentAddress = "Gagal memuat lokasi: $e";
         _isLocationLoading = false;
       });
     }
