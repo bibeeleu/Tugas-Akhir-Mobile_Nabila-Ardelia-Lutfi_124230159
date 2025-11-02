@@ -14,7 +14,7 @@ import 'services/session_service.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // 🛎️ Inisialisasi Awesome Notifications
+  // Inisialisasi Awesome Notifications
   await AwesomeNotifications().initialize(
     null,
     [
@@ -62,7 +62,7 @@ class _UniVerseAppState extends State<UniVerseApp> {
       var status = await Permission.location.request();
       if (!status.isGranted) {
         setState(() {
-          _locationMessage = "❌ Izin lokasi ditolak pengguna.";
+          _locationMessage = "Izin lokasi ditolak pengguna.";
           _loadingLocation = false;
         });
         return;
@@ -72,7 +72,7 @@ class _UniVerseAppState extends State<UniVerseApp> {
       bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
       if (!serviceEnabled) {
         setState(() {
-          _locationMessage = "⚠️ GPS belum aktif. Aktifkan layanan lokasi.";
+          _locationMessage = "GPS belum aktif. Aktifkan layanan lokasi.";
           _loadingLocation = false;
         });
         return;
@@ -97,12 +97,12 @@ class _UniVerseAppState extends State<UniVerseApp> {
         });
       } else {
         setState(() {
-          _locationMessage = "⚠️ Gagal mendapatkan alamat.";
+          _locationMessage = "Gagal mendapatkan alamat.";
         });
       }
     } catch (e) {
       setState(() {
-        _locationMessage = "⚠️ Error: $e";
+        _locationMessage = "Error: $e";
       });
     }
 
@@ -123,7 +123,7 @@ class _UniVerseAppState extends State<UniVerseApp> {
       );
 
       if (tables.isEmpty) {
-        print('⚠️ Tabel "users" belum ada di database.');
+        print('Tabel "users" belum ada di database.');
         await db.close();
         return;
       }
@@ -161,7 +161,7 @@ class _UniVerseAppState extends State<UniVerseApp> {
       print('================================================================\n');
       await db.close();
     } catch (e) {
-      print('❌ Gagal membaca database: $e');
+      print('Gagal membaca database: $e');
     }
   }
 
@@ -195,14 +195,14 @@ class _UniVerseAppState extends State<UniVerseApp> {
           home: Scaffold(
             body: Column(
               children: [
-                // 🌍 Lokasi tampil di atas halaman
+                // Lokasi tampil di atas halaman
                 Container(
                   width: double.infinity,
                   color: Colors.greenAccent.withOpacity(0.2),
                   padding: const EdgeInsets.all(8),
                   child: Text(
                     _loadingLocation
-                        ? "⏳ Mengambil lokasi..."
+                        ? "Mengambil lokasi..."
                         : _locationMessage,
                     style: const TextStyle(
                       fontSize: 13,
